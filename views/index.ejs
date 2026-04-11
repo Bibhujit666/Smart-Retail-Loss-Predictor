@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Retail Predictor</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🛒 Smart Retail Predictor</h1>
+    <p class="subtitle">Predict Retail Loss (Shrinkage & Spoilage)</p>
+
+    <!-- 🔥 FORM -->
+    <form action="/predict" method="POST" class="form" id="form">
+
+      <div class="grid">
+        <input type="number" step="any" name="temperature" placeholder="🌡 Temperature (°C)" required>
+        <input type="number" step="any" name="humidity" placeholder="💧 Humidity (%)" required>
+        <input type="number" name="footfall" placeholder="👥 Footfall" required>
+        <input type="number" name="staff" placeholder="👨‍💼 Staff Count" required>
+        <input type="number" step="any" name="experience" placeholder="🧠 Experience (Years)" required>
+        <input type="number" step="any" name="cold_chain" placeholder="❄️ Cold Chain Break (mins)" required>
+
+        <select name="is_weekend">
+          <option value="1">📅 Weekend</option>
+          <option value="0">📅 Weekday</option>
+        </select>
+      </div>
+
+      <!-- 🚀 BUTTONS -->
+      <div class="btn-group">
+        <button type="button" onclick="fillDemo()">⚡ Demo Fill</button>
+        <button type="submit" id="predictBtn">🚀 Predict Now</button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- 🔥 SCRIPT -->
+  <script>
+    // ⚡ Demo Auto Fill
+    function fillDemo() {
+      document.querySelector('[name="temperature"]').value = 38;
+      document.querySelector('[name="humidity"]').value = 80;
+      document.querySelector('[name="footfall"]').value = 400;
+      document.querySelector('[name="staff"]').value = 4;
+      document.querySelector('[name="experience"]').value = 1;
+      document.querySelector('[name="cold_chain"]').value = 60;
+      document.querySelector('[name="is_weekend"]').value = 1;
+    }
+
+    // ⏳ Loading effect
+    document.getElementById("form").addEventListener("submit", function() {
+      const btn = document.getElementById("predictBtn");
+      btn.innerText = "⏳ Predicting...";
+      btn.disabled = true;
+    });
+  </script>
+
+</body>
+</html>

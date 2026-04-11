@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prediction Result</title>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>📊 Prediction Result</h1>
+
+    <!-- 💰 Result -->
+    <div class="result-card">
+      <h2>💰 Predicted Loss</h2>
+
+      <p class="amount <%= Number(result) > 3000 ? 'high' : 'low' %>">
+        ₹ <%= Number(result).toFixed(2) %>
+      </p>
+
+      <p class="risk <%= Number(result) > 3000 ? 'high' : 'low' %>">
+        ⚠️ Risk Level: <%= risk %>
+      </p>
+
+      <p class="insight"><%= insight %></p>
+    </div>
+
+    <!-- 📊 GRAPH -->
+    <div class="result-card">
+      <h2>📈 Loss Visualization</h2>
+      <canvas id="myChart" style="max-height: 300px;"></canvas>
+    </div>
+
+    <!-- 🔙 Back -->
+    <a href="/" class="btn">🔙 Back to Home</a>
+  </div>
+
+  <!-- 📊 CHART SCRIPT -->
+  <script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    const value = <%= Number(result) %>;
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Predicted Loss'],
+        datasets: [{
+          label: '₹ Value',
+          data: [value],
+          backgroundColor: 'rgba(56, 189, 248, 0.9)',
+          borderRadius: 15,
+          barThickness: 120
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white',
+              font: { size: 14 }
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return "₹ " + context.raw.toFixed(2);
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: 'white',
+              font: { size: 14 }
+            },
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            beginAtZero: true,
+            ticks: {
+              color: 'white',
+              callback: function(value) {
+                return "₹ " + value;
+              }
+            },
+            grid: {
+              color: "rgba(255,255,255,0.1)"
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

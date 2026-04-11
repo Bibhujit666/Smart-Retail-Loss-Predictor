@@ -1,0 +1,179 @@
+/* 🔥 Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🌌 Body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: white;
+}
+
+/* 📦 Container */
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 40px;
+  background: rgba(30, 41, 59, 0.7);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* ✨ Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🏷 Title */
+h1 {
+  color: #38bdf8;
+  margin-bottom: 10px;
+}
+
+/* ✨ Subtitle */
+.subtitle {
+  color: #94a3b8;
+  margin-bottom: 25px;
+}
+
+/* 📋 Form */
+.form {
+  margin-top: 20px;
+}
+
+/* 🔲 Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* 🧾 Inputs */
+input, select {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: #e2e8f0;
+  color: #000;
+  transition: 0.3s;
+}
+
+/* 🟢 Input Focus */
+input:focus, select:focus {
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+/* 🔘 Button Group */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* 🔘 Buttons */
+button {
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* ⚡ Demo Button */
+.btn-group button:first-child {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: black;
+}
+
+.btn-group button:first-child:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+/* 🔥 Button Hover */
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+}
+
+/* 📊 Result Card */
+.result-card {
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 💰 Amount */
+.amount {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* 🟢 Low Risk */
+.low {
+  color: #22c55e;
+}
+
+/* 🔴 High Risk */
+.high {
+  color: #ef4444;
+}
+
+/* ⚠️ Risk Text */
+.risk {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 💡 Insight */
+.insight {
+  margin-top: 10px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* 🔙 Back Button */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #f43f5e, #e11d48);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+}
